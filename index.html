@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form-container">
+
+        <form class="form">
+            <h1 class="heading">Signup</h1>
+            <label>User Name:</label>
+            <input type="text" placeholder="Enter Name" id="name">
+            <span class="nameerror">Name must contain only letters</span><br>
+            <label>Password:</label>
+            <input type="password" placeholder="Enter password" id="pass">
+            <span class="passerror">Password contains letters,digits</span><br>
+            <label>Re-Enter Password:</label>
+            <input type="password" placeholder="Re-enter Password" id="repass">
+            <span class="repasserror">Password do not match</span><br>
+            <input type="submit" value="submit" id="submit">
+        </form>
+    </div>
+    <script>
+       
+        var submit = document.getElementById("submit")
+        submit.addEventListener("click", function () {
+            event.preventDefault()
+
+            var nameRegex = /^[a-zA-Z]+$/
+            var passRegex = /^[a-zA-Z0-9]+$/
+            var repassRegex = /^[a-zA-Z0-9]+$/
+
+            var name = document.getElementById("name")
+            var pass = document.getElementById("pass")
+            var repass = document.getElementById("repass")
+
+            var validate=true
+
+            if (nameRegex.test(name.value) == false) {
+                document.querySelector(".nameerror").style.display = "inline"
+                validate=false
+            }
+            else {
+                document.querySelector(".nameerror").style.display = "none"
+
+            }
+
+            if (passRegex.test(pass.value) == false) {
+                document.querySelector(".passerror").style.display = "inline"
+                validate=false
+            }
+            else {
+                document.querySelector(".passerror").style.display = "none"
+            }
+
+
+
+            if (pass != 0) {
+                if (pass.value == repass.value) {
+                    document.querySelector(".repasserror").style.display = "none"
+                }
+                else {
+                    document.querySelector(".repasserror").style.display = "inline"
+                    validate=false
+                }
+            }
+
+            if (validate == true) {
+                alert("Form Password verification Successfully Submitted.!!!")
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>
