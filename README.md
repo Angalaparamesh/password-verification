@@ -12,4 +12,4 @@ HTML5: The structure of the form.
 CSS3: For styling and responsive design.
 JavaScript: For real-time validation and interactivity.
 
-##Checkout Link:[]
+##Checkout Link:[https://angalaparamesh.github.io/password-verification/]
